@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seven Years — Carlo & Armie</title>
+
+<!--
+  EASY EDITS FOR LATER
+  ---------------------------------------------------
+  Everything you'd want to personalize — password, dates, photo paths,
+  timeline/reasons/letter/promise copy, language phrases, quiz questions, and
+  the music track — lives in one file: js/data.js
+  ---------------------------------------------------
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Fraunces:opsz,wght@9..144,300..700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Great+Vibes&family=Noto+Naskh+Arabic:wght@400;600&family=Noto+Sans+Devanagari:wght@400;600&family=Noto+Sans+JP:wght@400;600&family=Noto+Sans+KR:wght@400;600&family=Noto+Sans+SC:wght@400;600&family=Noto+Serif:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+
+
+</head>
+<body>
+
+<svg style="display:none" aria-hidden="true">
+  <symbol id="corner-bloom" viewBox="0 0 90 90">
+    <path d="M8 86C8 58 18 30 46 8" fill="none" stroke="#7E9E7A" stroke-width="2"/>
+    <ellipse cx="16" cy="62" rx="4" ry="9" fill="#7E9E7A" transform="rotate(55 16 62)"/>
+    <ellipse cx="30" cy="40" rx="4" ry="9" fill="#3B5A40" opacity="0.55" transform="rotate(-50 30 40)"/>
+    <ellipse cx="40" cy="18" rx="3.6" ry="8" fill="#7E9E7A" transform="rotate(45 40 18)"/>
+    <g transform="translate(20,74)">
+      <circle cx="0" cy="-4" r="2.6" fill="#D98FA3"/>
+      <circle cx="3.6" cy="-1" r="2.6" fill="#D98FA3"/>
+      <circle cx="2.2" cy="3.4" r="2.6" fill="#D98FA3"/>
+      <circle cx="-2.2" cy="3.4" r="2.6" fill="#D98FA3"/>
+      <circle cx="-3.6" cy="-1" r="2.6" fill="#D98FA3"/>
+      <circle cx="0" cy="0" r="1.6" fill="#E8B972"/>
+    </g>
+    <g transform="translate(46,10)">
+      <circle cx="0" cy="-3.4" r="2.2" fill="#B9A6D9"/>
+      <circle cx="3" cy="-1" r="2.2" fill="#B9A6D9"/>
+      <circle cx="1.8" cy="2.8" r="2.2" fill="#B9A6D9"/>
+      <circle cx="-1.8" cy="2.8" r="2.2" fill="#B9A6D9"/>
+      <circle cx="-3" cy="-1" r="2.2" fill="#B9A6D9"/>
+      <circle cx="0" cy="0" r="1.3" fill="#E8B972"/>
+    </g>
+    <circle cx="10" cy="40" r="2.4" fill="#FFFFFF" stroke="#D9D3C4" stroke-width="1"/>
+  </symbol>
+  <symbol id="petal-shape" viewBox="0 0 20 12">
+    <ellipse cx="10" cy="6" rx="9" ry="5" />
+  </symbol>
+</svg>
+
+<!-- ============ LOCK SCREEN ============ -->
+<div id="lock-screen">
+  <div class="lock-card">
+    <svg class="corner-sprig corner-tl"><use href="#corner-bloom"/></svg>
+    <svg class="corner-sprig corner-br"><use href="#corner-bloom"/></svg>
+    <div class="vine-strip small"></div>
+    <svg class="lock-icon" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+    <h1>Seven Years With You</h1>
+    <p class="lock-sub">A little something before Friday.</p>
+    <form class="lock-form" id="lock-form">
+      <input type="password" id="password-input" placeholder="Enter the word only you know" autocomplete="off">
+      <button type="submit" class="unlock-btn">Unlock</button>
+      <p class="lock-error" id="lock-error"></p>
+    </form>
+    <p class="hint">Hint: the name only you call me.</p>
+  </div>
+</div>
+
+<!-- ============ MAIN SITE ============ -->
+<div id="site" hidden style="position:relative;">
+  <div class="side-vine left"></div>
+  <div class="side-vine right"></div>
+
+  <div class="music-player" id="music-player">
+    <button class="music-toggle" id="music-toggle" aria-label="Play music">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+    </button>
+    <span class="music-title" id="music-title">Music please</span>
+    <audio id="bg-audio" loop preload="none"></audio>
+  </div>
+
+  <nav>
+    <div class="nav-inner">
+      <div class="brand">C &amp; A</div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#journey">Journey</a></li>
+        <li><a href="#love-languages">Languages</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#reasons">Reasons</a></li>
+        <li><a href="#letter">Letter</a></li>
+        <li><a href="#promise">Promise</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <section id="hero">
+    <div class="vine-strip"></div>
+    <div class="hero-sun"></div>
+    <div class="hero-num">7</div>
+    <svg class="corner-sprig hero-corner corner-tl"><use href="#corner-bloom"/></svg>
+    <svg class="corner-sprig hero-corner corner-br"><use href="#corner-bloom"/></svg>
+    <svg class="petal" style="left:12%;color:#D98FA3;animation-duration:15s;animation-delay:0s;"><use href="#petal-shape" fill="currentColor"/></svg>
+    <svg class="petal" style="left:28%;color:#E8B972;animation-duration:19s;animation-delay:3s;"><use href="#petal-shape" fill="currentColor"/></svg>
+    <svg class="petal" style="left:46%;color:#B9A6D9;animation-duration:17s;animation-delay:6s;"><use href="#petal-shape" fill="currentColor"/></svg>
+    <svg class="petal" style="left:64%;color:#D98FA3;animation-duration:21s;animation-delay:2s;"><use href="#petal-shape" fill="currentColor"/></svg>
+    <svg class="petal" style="left:80%;color:#E8B972;animation-duration:16s;animation-delay:5s;"><use href="#petal-shape" fill="currentColor"/></svg>
+    <svg class="petal" style="left:93%;color:#B9A6D9;animation-duration:18s;animation-delay:8s;"><use href="#petal-shape" fill="currentColor"/></svg>
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <p class="hero-names reveal-item">Engr. Carlo Cimacio &amp; Nurse Armie Beth Momo</p>
+        <h1 class="reveal-item">Seven years, and still writing our story.</h1>
+        <p class="hero-date reveal-item">September 18, 2026</p>
+        <a href="#together" class="hero-scroll reveal-item">
+          See how far we've come
+          <svg class="icon" style="width:16px;height:16px;" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+        </a>
+      </div>
+      <div class="hero-photo reveal-item" id="hero-photo-frame"></div>
+    </div>
+    <svg class="hero-hills" viewBox="0 0 1200 110" preserveAspectRatio="none">
+      <path d="M0,70 C250,20 950,120 1200,55 L1200,110 L0,110 Z" fill="#9CB596"/>
+      <path d="M0,95 C400,55 800,110 1200,80 L1200,110 L0,110 Z" fill="#7E9E7A"/>
+    </svg>
+  </section>
+
+  <!-- ============ TOGETHER / COUNT-UP ============ -->
+  <section id="together">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Together, and counting</h2>
+        <p>Every second on this clock is one we chose each other.</p>
+      </div>
+      <div class="count-grid">
+        <div class="count-box"><span class="count-num" id="c-years">00</span><span class="count-label">Years</span></div>
+        <div class="count-box"><span class="count-num" id="c-months">00</span><span class="count-label">Months</span></div>
+        <div class="count-box"><span class="count-num" id="c-days">00</span><span class="count-label">Days</span></div>
+        <div class="count-box"><span class="count-num" id="c-hours">00</span><span class="count-label">Hours</span></div>
+        <div class="count-box"><span class="count-num" id="c-mins">00</span><span class="count-label">Minutes</span></div>
+        <div class="count-box"><span class="count-num" id="c-secs">00</span><span class="count-label">Seconds</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ JOURNEY / TIMELINE ============ -->
+  <section id="journey">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Our journey</h2>
+        <p>Seven years, seven chapters. Edit these with your own memories.</p>
+      </div>
+      <div class="timeline" id="timeline-list"></div>
+    </div>
+  </section>
+
+  <!-- ============ I LOVE YOU AROUND THE WORLD ============ -->
+  <section id="love-languages">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>I love you, in every language.</h2>
+        <p>No matter the words, the meaning is always you.</p>
+      </div>
+      <div class="love-language-scene">
+        <figure class="love-language-side left" aria-hidden="true">
+          <img id="love-language-side-photo-left" alt="Carlo and Armie memory" loading="lazy">
+        </figure>
+        <div class="love-language-showcase reveal-on-scroll" id="love-language-showcase" role="button" tabindex="0" aria-label="Show next language">
+          <p class="love-language-phrase" id="love-language-phrase"></p>
+          <p class="love-language-name" id="love-language-name"></p>
+          <p class="love-language-meaning" id="love-language-meaning"></p>
+        </div>
+        <figure class="love-language-side right" aria-hidden="true">
+          <img id="love-language-side-photo-right" alt="Carlo and Armie memory" loading="lazy">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section class="section-alt" id="gallery">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Every frame, all of us</h2>
+        <p>All the photos in the folder, arranged like a real memory wall — the full story, not just a few highlight shots.</p>
+      </div>
+      <div class="gallery-grid" id="gallery-grid"></div>
+      <p class="gallery-count" id="gallery-count"></p>
+    </div>
+  </section>
+
+  <!-- ============ REASONS ============ -->
+  <section id="reasons">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Reasons I love you</h2>
+        <p>Tap each line to read the rest. Edit these to make them yours.</p>
+      </div>
+      <div class="reason-list" id="reason-list"></div>
+    </div>
+  </section>
+
+  <!-- ============ LETTER ============ -->
+  <section class="section-alt" id="letter">
+    <div class="wrap letter-wrap">
+      <div class="section-head" style="text-align:center;max-width:520px;">
+        <h2>A letter from my heart</h2>
+        <p>Click the seal to open it.</p>
+      </div>
+      <button class="seal-btn" id="seal-btn" aria-label="Open the letter">
+        <svg class="icon" style="width:30px;height:30px;" viewBox="0 0 24 24"><path d="M3 7l9 6 9-6M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/></svg>
+      </button>
+      <p class="letter-prompt" id="letter-prompt">Open the letter</p>
+      <div class="letter-body" id="letter-body">
+        <svg class="corner-sprig letter-corner"><use href="#corner-bloom"/></svg>
+        <div id="letter-text"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SURPRISE / SCRATCH ============ -->
+  <section id="surprise">
+    <div class="wrap">
+      <div class="section-head" style="margin:0 auto 40px;text-align:center;">
+        <h2>Scratch to reveal</h2>
+        <p>Use your mouse or finger to scratch the panel below.</p>
+      </div>
+      <div class="scratch-wrap">
+        <div class="scratch-message" id="scratch-message"></div>
+        <canvas id="scratch-canvas"></canvas>
+      </div>
+      <button class="scratch-reset-btn" id="scratch-reset-btn" type="button">Scratch again</button>
+      <p class="scratch-caption">Scratch as many times as you want.</p>
+    </div>
+  </section>
+
+  <!-- ============ FUTURE LETTER ============ -->
+  <section class="section-alt" id="future-letter">
+    <div class="wrap letter-wrap">
+      <div class="section-head" style="text-align:center;max-width:520px;">
+        <h2>A letter for later</h2>
+        <p id="future-teaser"></p>
+      </div>
+      <div class="future-lock" id="future-lock">
+        <svg class="icon" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="1"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+        <p>Sealed with love. Open when your heart says now.</p>
+        <button class="future-unlock-btn" id="future-unlock-btn" type="button">Unlock</button>
+      </div>
+      <div class="letter-body" id="future-letter-body">
+        <div id="future-letter-text"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROMISE ============ -->
+  <section class="section-alt" id="promise">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>My promise to you</h2>
+        <p>Seven promises, one for every year — and every year after.</p>
+      </div>
+      <div class="promise-list" id="promise-list"></div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="vine-strip-dark"></div>
+    <h2>With seven years behind us, and forever ahead.</h2>
+    <div class="footer-sign">Engr. Carlo Cimacio</div>
+    <div class="footer-date">September 18, 2026</div>
+  </footer>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close photo">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="lightbox-inner">
+      <div class="lightbox-frame" id="lightbox-frame"></div>
+      <p class="lightbox-caption" id="lightbox-caption"></p>
+      <div class="lightbox-controls">
+        <button class="lightbox-nav" id="lightbox-prev" aria-label="Previous photo"><svg class="icon" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button class="lightbox-nav" id="lightbox-next" aria-label="Next photo"><svg class="icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="paper-grain"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
