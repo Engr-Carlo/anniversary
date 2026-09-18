@@ -209,6 +209,13 @@ setInterval(updateCounter, 1000);
   function swapSidePhoto(imgEl, photo){
     if(!imgEl || !photo || !photo.src){ return; }
 
+    // First paint should never wait, so both side images always appear.
+    if(!imgEl.src || /\/$/.test(imgEl.src) || imgEl.getAttribute('src') === ''){
+      imgEl.src = photo.src;
+      imgEl.alt = photo.alt || 'Carlo and Armie memory';
+      return;
+    }
+
     const nextImage = new Image();
     nextImage.src = photo.src;
 

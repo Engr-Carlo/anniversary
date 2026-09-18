@@ -1145,12 +1145,122 @@ footer h2{
   position:absolute;top:18px;right:22px;
 }
 
-@media (prefers-reduced-motion: reduce){
-  *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+/* ---------- MOBILE-FIRST LAYER ---------- */
+section{padding:84px 18px;}
+.nav-inner{padding:14px 18px;}
+
+/* mobile nav default */
+.nav-toggle{display:block;background:none;border:none;}
+.nav-links{
+  position:fixed;
+  top:64px;
+  left:0;
+  right:0;
+  background:var(--white);
+  flex-direction:column;
+  padding:18px;
+  gap:14px;
+  border-bottom:1px solid var(--line);
+  transform:translateY(-140%);
+  transition:transform .3s ease;
+  z-index:19;
+}
+.nav-links.open{transform:translateY(0);}
+
+.side-vine{display:none;}
+
+/* hero defaults to one column on mobile */
+.hero-grid{grid-template-columns:1fr;gap:28px;padding-top:32px;}
+.hero-num{display:none;}
+.hero-text h1{font-size:clamp(30px, 10vw, 42px);}
+.hero-photo{max-width:340px;margin:0 auto;}
+.hero-corner{display:none;}
+.hero-sun{top:34px;right:5%;width:110px;height:110px;}
+
+/* readable stacking on small screens */
+.section-head{margin-bottom:38px;}
+.count-grid{grid-template-columns:repeat(2,1fr);gap:20px;row-gap:26px;}
+.count-box{border-left:none;padding-left:0;}
+.moments-grid{grid-template-columns:1fr;gap:14px;}
+.gallery-grid{columns:2 145px;column-gap:12px;}
+.reason-row{grid-template-columns:34px 1fr auto;gap:12px;padding:18px 0;}
+.reason-detail{padding-left:46px;}
+.letter-body{padding:34px 22px;}
+
+/* languages section mobile defaults */
+#love-languages{padding-top:96px;padding-bottom:96px;}
+.love-language-showcase{padding:42px 18px 34px;border-radius:22px;}
+.love-language-side{display:block;width:92px;opacity:0.92;}
+.love-language-side.left{left:-14px;}
+.love-language-side.right{right:-14px;}
+
+.future-lock{padding:26px 20px;}
+#future-letter .letter-body{padding:34px 20px;font-size:17px;line-height:1.8;}
+.music-player{right:12px;bottom:12px;padding:8px 10px 8px 8px;}
+.music-title{display:none;}
+
+@media (min-width:560px){
+  section{padding:92px 20px;}
+  .gallery-grid{columns:2 180px;column-gap:16px;}
+  .love-language-side{width:112px;}
 }
 
-@media (max-width:720px){
-  section{padding:80px 20px;}
-  .hero-grid{grid-template-columns:1fr;}
-  .hero-num{display:none;}
+@media (min-width:720px){
+  section{padding:108px 24px;}
+
+  .nav-toggle{display:none;}
+  .nav-links{
+    position:static;
+    transform:none;
+    background:transparent;
+    border-bottom:none;
+    flex-direction:row;
+    padding:0;
+    gap:24px;
+  }
+
+  .hero-grid{grid-template-columns:1.08fr 0.92fr;gap:44px;padding-top:54px;}
+  .hero-num{display:block;top:-24px;left:-16px;}
+  .hero-corner{display:block;}
+  .hero-photo{max-width:none;margin:0;}
+
+  .count-grid{grid-template-columns:repeat(3,1fr);gap:22px;}
+  .moments-grid{grid-template-columns:repeat(2, minmax(0, 1fr));}
+  .gallery-grid{columns:3 200px;column-gap:18px;}
+  .reason-row{grid-template-columns:52px 1fr auto;gap:16px;}
+  .reason-detail{padding-left:68px;}
+  .letter-body{padding:40px 32px;}
+
+  .love-language-showcase{padding:50px 22px 40px;}
+  .love-language-side{width:132px;}
+  .music-title{display:block;}
+}
+
+@media (min-width:1024px){
+  section{padding:120px 24px;}
+  .side-vine{display:block;}
+
+  .hero-grid{grid-template-columns:1.1fr 0.9fr;gap:64px;}
+  .count-grid{grid-template-columns:repeat(6,1fr);gap:24px;}
+  .count-box{border-left:1px solid rgba(255,255,255,0.2);padding-left:20px;}
+  .count-box:first-child{border-left:none;padding-left:0;}
+
+  .moments-grid{grid-template-columns:repeat(3, minmax(0, 1fr));}
+  .gallery-grid{columns:4 250px;column-gap:22px;}
+
+  #love-languages{padding-top:132px;padding-bottom:132px;}
+  .love-language-showcase{padding:62px 30px 50px;}
+  .love-language-side{width:168px;}
+  .love-language-side.left{left:-6px;}
+  .love-language-side.right{right:-6px;}
+}
+
+@media (min-width:1240px){
+  .love-language-side{width:190px;}
+  .love-language-side.left{left:-10px;}
+  .love-language-side.right{right:-10px;}
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
 }
