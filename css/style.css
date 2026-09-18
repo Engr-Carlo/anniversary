@@ -492,46 +492,55 @@ nav{
   .count-box:nth-child(odd){border-left:none;padding-left:0;}
 }
 
-/* ---------- JOURNEY / TIMELINE ---------- */
-.timeline{
-  position:relative;
-  margin-top:20px;
+/* ---------- MOMENTS ---------- */
+#moments{
+  background:
+    radial-gradient(circle at 18% 14%, rgba(233,187,196,0.16), transparent 44%),
+    radial-gradient(circle at 82% 82%, rgba(232,185,114,0.18), transparent 48%),
+    linear-gradient(180deg, #fffaf8 0%, #fff4ee 100%);
 }
-.timeline::before{
-  content:"";
-  position:absolute;
-  left:20px;top:0;bottom:0;
-  width:16px;
-  background-image:var(--vine-vertical);
-  background-repeat:repeat-y;
-  background-size:16px 110px;
+
+.moments-grid{
+  margin-top:24px;
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:18px;
 }
-.t-item{
-  position:relative;
-  padding-left:76px;
-  margin-bottom:52px;
+
+.moment-card{
+  background:rgba(255,255,255,0.9);
+  border:1px solid rgba(176,141,87,0.26);
+  border-radius:18px;
+  padding:22px 20px 20px;
+  box-shadow:0 14px 30px rgba(79,55,41,0.1);
+  transition:transform .3s ease, box-shadow .3s ease;
 }
-.t-item:last-child{margin-bottom:0;}
-.t-num{
-  position:absolute;
-  left:0;top:0;
-  width:56px;height:56px;
-  border:1px solid var(--gold);
-  border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
+
+.moment-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 20px 36px rgba(176,141,87,0.22);
+}
+
+.moment-title{
   font-family:var(--font-display);
-  color:var(--gold);
-  background:var(--white);
-  font-size:16px;
+  color:var(--blue-deep);
+  font-size:21px;
+  margin:0 0 8px;
 }
-.t-item h3{
-  font-size:20px;
-  margin-bottom:8px;
-}
-.t-item p{
-  color:#6b6b6b;
+
+.moment-text{
+  margin:0;
+  color:#6a665f;
   font-size:14.5px;
-  max-width:480px;
+  line-height:1.68;
+}
+
+@media (max-width:980px){
+  .moments-grid{grid-template-columns:repeat(2, minmax(0, 1fr));}
+}
+
+@media (max-width:640px){
+  .moments-grid{grid-template-columns:1fr;}
 }
 
 /* ---------- GALLERY ---------- */

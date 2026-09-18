@@ -177,16 +177,17 @@ function updateCounter(){
 updateCounter();
 setInterval(updateCounter, 1000);
 
-/* ---------- RENDER: TIMELINE ---------- */
-(function renderTimeline(){
-  const el = document.getElementById('timeline-list');
-  el.innerHTML = SITE_DATA.timeline.map(function(item, i){
+/* ---------- RENDER: MOMENTS ---------- */
+(function renderMoments(){
+  const el = document.getElementById('moments-grid');
+  const items = SITE_DATA.moments || [];
+  if(!el || !items.length){ return; }
+  el.innerHTML = items.map(function(item){
     return `
-      <div class="t-item reveal-on-scroll">
-        <div class="t-num">${String(i + 1).padStart(2,'0')}</div>
-        <h3>${item.title}</h3>
-        <p>${item.text}</p>
-      </div>`;
+      <article class="moment-card reveal-on-scroll">
+        <h3 class="moment-title">${item.title}</h3>
+        <p class="moment-text">${item.text}</p>
+      </article>`;
   }).join('');
 })();
 

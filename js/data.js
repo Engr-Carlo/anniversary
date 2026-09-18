@@ -89,15 +89,13 @@ const SITE_DATA = {
     photo: { src: "assets/photos/gallery-38.jpg", alt: "Carlo and Armie together" }
   },
 
-  // curated photo album: a gentle love-story arc from spark -> comfort -> laughter -> rituals -> quiet love -> forever
-  timeline: [
-    { title: "The first yes", text: "[Write about how you met, or the moment you first got together.]" },
-    { title: "Our first trip, just the two of us", text: "[Add a memory from an early trip or adventure together.]" },
-    { title: "Meeting the family", text: "[Add the story of meeting each other's families for the first time.]" },
-    { title: "The year that tested us", text: "[Add a hard season you got through together, and how.]" },
-    { title: "A milestone we worked for", text: "[Add a shared achievement — a home, a promotion, a graduation.]" },
-    { title: "Building an ordinary life we love", text: "[Add a quiet, everyday memory that mattered more than it should have.]" },
-    { title: "Still here, still choosing you", text: "[Add something about where you are today, seven years in.]" }
+  moments: [
+    { title: "The way you look at me", text: "Even in a crowded room, I still catch that one look from you that feels like home." },
+    { title: "Quiet nights together", text: "Our best memories are often the simplest ones: food, stories, and your hand finding mine." },
+    { title: "Through every storm", text: "We were not perfect, but we stayed. We learned how to listen, forgive, and love better." },
+    { title: "Your laugh, my favorite sound", text: "There is something about your laugh that instantly makes any heavy day feel lighter." },
+    { title: "Ordinary days, extraordinary love", text: "Running errands, sharing meals, waiting in traffic somehow became beautiful because it was with you." },
+    { title: "Still choosing you", text: "After all this time, I still wake up grateful that my life is being written beside yours." }
   ],
 
   // every photo from images/ and images2/, shown as one full memory wall (not limited to 7)
